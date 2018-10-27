@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<?php
+$conn=mysqli_connect("localhost","root","","estore");
+
+if (isset($_POST['bsubmit'])) {
+include 'upload.php';
+$query="INSERT INTO `books`(`fileToUpload`, `name`, `writer`, `price`) VALUES ('$target_file',$_POST[name],$_POST[writer],$_POST[price])"
+$result=msqli_query($conn,$query);
+if ($result) {
+		echo "<script>alert('Record Uploaded Successfully')</script>";
+	}	
+	else
+		echo "<script>alert('Record Uploading Failed')</script>";
+}
+?>
+<h1><center>ADMIN PANEL</center></h1>
+<div style="margin-left: 5%; width: 300px;height: 1800px;border-style: solid;border-width: 2px;">
+<h1><center>Record Entries</center></h1>
+<table align="center">
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Book Entries</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="name" value="Book Name"></td></tr>
+<tr><td><input type="text" name="writer" value="Writer"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>
+<tr><td><input type="submit" name="bsubmit" ></td></tr>
+</form>
+
+<table align="center" >
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Men Clothes</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="brand" value="Brand Name"></td></tr>
+<tr><td><input type="text" name="details" value="Details"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>	
+<tr><td><input type="submit" name="mcsubmit" ></td></tr>
+
+</form>	
+
+</table>
+
+<table  align="center">
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Women Clothes</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="brand" value="Brand Name"></td></tr>
+<tr><td><input type="text" name="details" value="Details"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>	
+<tr><td><input type="submit" name="wcsubmit" ></td></tr>
+
+</form>	
+
+</table>
+
+<table align="center">
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Children Clothes</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="brand" value="Brand Name"></td></tr>
+<tr><td><input type="text" name="details" value="Details"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>	
+<tr><td><input type="submit" name="ccsubmit" ></td></tr>
+
+</form>	
+</table>
+
+<table align="center">
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Cosmetics</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="brand" value="Brand Name"></td></tr>
+<tr><td><input type="text" name="details" value="Details"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>	
+<tr><td><input type="submit" name="csubmit" ></td></tr>
+
+</form>	
+</table>
+
+<table align="center">
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Men Shoes</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="brand" value="Brand Name"></td></tr>
+<tr><td><input type="text" name="details" value="Details"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>	
+<tr><td><input type="submit" name="mssubmit" ></td></tr>
+
+</form>	
+
+</table>
+
+<table align="center">
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Women Shoes</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="brand" value="Brand Name"></td></tr>
+<tr><td><input type="text" name="details" value="Details"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>	
+<tr><td><input type="submit" name="wssubmit" ></td></tr>
+
+</form>	
+
+</table>
+
+<table align="center">
+<form  method="post" enctype="multipart/form-data">
+<h2><center>Children Shoes</center></h2>
+<tr><td><input type="file" name="fileToUpload" ></td></tr>
+<tr><td><input type="text" name="brand" value="Brand Name"></td></tr>
+<tr><td><input type="text" name="details" value="Details"></td></tr>
+<tr><td><input type="text" name="price" value="Price/Rs"></td></tr>	
+<tr><td><input type="submit" name="cssubmit" ></td></tr>
+
+</form>	
+
+</table>
+</div>
+</body>
+</html>
