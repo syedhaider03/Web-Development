@@ -1,0 +1,55 @@
+(function() {
+  const tabbedHtml = $('.tabbed-content');
+  
+  let tabs = $('.tabs li'); 
+  
+  function render() {
+    tabs.each(function(i, tab) {
+      var tab = $(tab),
+        progress = tab.data('progress') || 0,
+        progressBar = $('<div />', {
+          'class': 'progressbar'
+        });
+
+      tab
+        .append(progressBar)
+        .find('.step-number').text(`Step ${i+1}`);
+      
+      setProgressBars();
+    });
+  }
+  
+  function setProgressBars() {
+    var progressbar = $('.progressbar'),
+        progress;
+    
+    progressbar.each(function(i, bar) {     
+      progress = $(bar).parents('li').data('progress') || 0;
+            
+      $(bar).progressbar({
+        value: progress
+      }).children('.ui-progressbar-value').text(`${progress}%`)
+        .css('display', 'block');
+    });
+  }
+  
+  function toggleStep() {
+    let $this = $(this),
+        target = $($this.find('a').attr('href'));     
+      
+    tabs.removeClass('open');
+    tabbedHtml.hide();
+    target.fadeIn();
+    $this.addClass('open');    
+  }
+  
+  function bindEvents() {
+    tabs.on('click', toggleStep);
+  }
+
+  $(function() {
+    render();
+    bindEvents();
+  });
+
+})();

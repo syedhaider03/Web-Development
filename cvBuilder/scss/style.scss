@@ -1,0 +1,116 @@
+$grid-col: 8.333;
+$default-padding: 0.5em;
+$grey: #eee;
+
+@mixin border($size, $color) {
+  border: $size solid $color;
+  border-radius: 0;  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, ul {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;  
+  
+  padding: $default-padding; 
+  text-align: center;
+  
+  &:after {    
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  [class*="grid-"] {  
+    float: left;    
+  }
+  
+  @for $i from 1 through 12 {
+    .grid-#{$i} {
+      width: 0% + ($grid-col * $i);
+    }
+  }  
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.tabs {
+	list-style: none;
+  float: left;
+  @include border(1px, #e3e2de);		
+  
+  li {
+    position:relative;
+    text-align:center;
+    border-bottom: 1px #e3e2de solid;	
+    padding: 1em;
+   
+    a {	
+      display: block;  	
+      padding: 1em 0;	          
+    }
+    
+    .step-number {
+      display: block;
+      font-weight: 700;
+    }  
+  
+    &:last-child {
+      border-bottom: 0;
+    }   
+    
+    &.open, &:hover {
+      background: $grey;
+    }
+  }
+}
+
+.tabbed-content {
+	display: none;
+  padding: $default-padding;    
+  @include border(1px, $grey); 
+  border-left: none;
+}
+
+.tabbed-content.open {
+	display: block;
+}
+
+.progressbar {     
+  max-height: 23px;
+  
+  &.ui-widget-content {   
+    
+  }
+}
+
+.ui-progressbar .ui-progressbar-value {  
+  display: block;  
+  background: #ABE08C;  
+  padding: 0.3em;
+  font-size: 0.7em; 
+  height: auto;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;
+}
